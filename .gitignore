@@ -1,2 +1,7 @@
 auto-save-list/
-elpa/
+*.dat
+ido.last*
+elpa/*readme.txt
+elpa/gnupg
+elpa/archives
+elpa/**/*.elc
