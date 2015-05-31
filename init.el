@@ -17,6 +17,8 @@
 (ido-mode 1)
 (ido-everywhere 1)
 
+(global-linum-mode 1)
+
 ; auto-complete doesn't work for now
 ;(require 'auto-complete-config)
 ;(ac-config-default)
@@ -27,6 +29,8 @@
 (setq make-backup-files nil)
 
 (setq auto-save-default nil)
+
+(setq linum-format "%d ")
 
 
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -49,3 +53,4 @@
 
 ;; workaround https://github.com/bbatsov/zenburn-emacs/issues/186
 (add-hook 'after-init-hook (lambda () (load-theme 'zenburn t)))
+(add-hook 'after-init-hook #'projectile-global-mode)
