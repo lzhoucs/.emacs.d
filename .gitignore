@@ -6,3 +6,4 @@ elpa/gnupg
 elpa/archives
 elpa/**/*.elc
 projectile-bookmarks.eld
+url/
