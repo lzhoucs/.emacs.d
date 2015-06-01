@@ -32,6 +32,7 @@
 
 (setq linum-format "%d ")
 
+(setq magit-last-seen-setup-instructions "1.4.0")
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
