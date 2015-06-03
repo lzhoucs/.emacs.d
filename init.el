@@ -9,6 +9,8 @@
 
 ; function settings
 (menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
 
 (delete-selection-mode t)
 
@@ -55,3 +57,5 @@
 ;; workaround https://github.com/bbatsov/zenburn-emacs/issues/186
 (add-hook 'after-init-hook (lambda () (load-theme 'zenburn t)))
 (add-hook 'after-init-hook #'projectile-global-mode)
+
+(load-file "~/.emacs.d/init-local.el")
