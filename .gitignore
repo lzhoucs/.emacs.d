@@ -1,12 +1,25 @@
 auto-save-list/
-*.dat
-ido.last*
-elpa/*readme.txt
+
+## emacs
+url/
+
+## epla
 elpa/gnupg
 elpa/archives
 elpa/**/*.elc
-projectile-bookmarks.eld
-url/
+elpa/*readme.txt
 
 ## magit
 server/
+
+## tramp
+tramp
+
+## projectile
+projectile-bookmarks.eld
+
+## ido
+ido.last*
+
+## others
+*.dat
