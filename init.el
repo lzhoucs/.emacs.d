@@ -8,9 +8,9 @@
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
 ; function settings
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (tool-bar-mode -1))
 
 (delete-selection-mode t)
 
