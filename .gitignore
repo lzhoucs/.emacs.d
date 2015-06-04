@@ -21,5 +21,8 @@ projectile-bookmarks.eld
 ## ido
 ido.last*
 
+## local customization
+init-local.el
+
 ## others
 *.dat
