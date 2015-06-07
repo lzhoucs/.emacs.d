@@ -1,43 +1,42 @@
+;; package archive sources
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 			 ("melpa" . "http://melpa.org/packages/")
 			 ("marmalade" . "https://marmalade-repo.org/packages/")
 			 ))
 
-; key binding
-(global-set-key (kbd "C-o") 'er/expand-region)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-
-; function settings
+;; emacs settings
+(setq auto-save-default nil)
+(setq make-backup-files nil)
+(setq inhibit-startup-screen t)
+(delete-selection-mode t)
+(show-paren-mode t)
+(fset 'yes-or-no-p 'y-or-n-p)
+;; disable GUI bars
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-(delete-selection-mode t)
-
-(show-paren-mode t)
-
+;; ido
 (ido-mode 1)
 (ido-everywhere 1)
+(setq ido-enable-flex-matching t)
 
+;; projectile
+(add-hook 'after-init-hook #'projectile-global-mode)
+
+;; golden-radio
+(add-hook 'after-init-hook #'golden-ratio-mode )
+
+;; line number
 (global-linum-mode 1)
-
-; auto-complete doesn't work for now
-;(require 'auto-complete-config)
-;(ac-config-default)
-
-; variable settings
-(setq inhibit-startup-screen t)
-
-(setq make-backup-files nil)
-
-(setq auto-save-default nil)
-
 (setq linum-format "%d ")
 
+;; magit
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-(fset 'yes-or-no-p 'y-or-n-p)
-
+;; auto-complete - doesn't work for now
+;(require 'auto-complete-config)
+;(ac-config-default)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -56,6 +55,10 @@
 
 ;; workaround https://github.com/bbatsov/zenburn-emacs/issues/186
 (add-hook 'after-init-hook (lambda () (load-theme 'zenburn t)))
-(add-hook 'after-init-hook #'projectile-global-mode)
 
+;; local setting file. E.g: add additional exec-path
 (load-file "~/.emacs.d/init-local.el")
+
+;; key binding
+(global-set-key (kbd "C-o") 'er/expand-region)
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
