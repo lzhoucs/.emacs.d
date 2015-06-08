@@ -11,6 +11,7 @@
 (delete-selection-mode t)
 (show-paren-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
+(electric-pair-mode 1)
 ;; disable GUI bars
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -34,9 +35,8 @@
 ;; magit
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-;; auto-complete - doesn't work for now
-;(require 'auto-complete-config)
-;(ac-config-default)
+;; auto-complete
+(add-hook 'after-init-hook #'ac-config-default )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
