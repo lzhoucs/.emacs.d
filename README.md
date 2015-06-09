@@ -8,3 +8,9 @@ To install,
 ```
 git clone git@github.com:lzhoucs/.emacs.d.git ~/.emacs.d
 ```
+
+Useful package but didn't include for now:
+- https://github.com/Fuco1/smartparens.  Built in electric-pair-mode seems good enough
+- dimitri/el-get. Trying to find something better
+- yasnippet. Will check out.
+- js2-mode. Will check out.
