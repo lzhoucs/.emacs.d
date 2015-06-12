@@ -29,6 +29,8 @@
 
 ;; projectile
 (add-hook 'after-init-hook #'projectile-global-mode)
+(setq projectile-indexing-method 'alien)  ;; For windows.
+(setq projectile-enable-caching t)
 
 ;; golden-radio
 (add-hook 'after-init-hook #'golden-ratio-mode )
