@@ -20,9 +20,12 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; ido
-(ido-mode 1)
-(ido-everywhere 1)
-(setq ido-enable-flex-matching t)
+; (ido-mode 1)
+; (ido-everywhere 1)
+; (setq ido-enable-flex-matching t)
+
+;; helm
+(add-hook 'after-init-hook #'helm-mode)
 
 ;; projectile
 (add-hook 'after-init-hook #'projectile-global-mode)
