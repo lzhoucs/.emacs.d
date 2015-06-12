@@ -32,6 +32,7 @@
 (setq projectile-indexing-method 'alien)  ;; For windows.
 (setq projectile-enable-caching t)
 
+
 ;; golden-radio
 (add-hook 'after-init-hook #'golden-ratio-mode )
 
@@ -43,7 +44,10 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; auto-complete
-(add-hook 'after-init-hook #'ac-config-default )
+; (add-hook 'after-init-hook #'ac-config-default )
+
+;; company-mode
+(add-hook 'after-init-hook 'global-company-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
