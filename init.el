@@ -1,3 +1,5 @@
+(package-initialize)
+
 ;; package archive sources
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 			 ("melpa" . "http://melpa.org/packages/")
@@ -19,22 +21,18 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;; ido
-; (ido-mode 1)
-; (ido-everywhere 1)
-; (setq ido-enable-flex-matching t)
-
 ;; helm
-(add-hook 'after-init-hook #'helm-mode)
+(helm-mode)
+(helm-autoresize-mode)
+(setq helm-autoresize-max-height 60)
 
 ;; projectile
-(add-hook 'after-init-hook #'projectile-global-mode)
+(projectile-global-mode)
 (setq projectile-indexing-method 'alien)  ;; For windows.
 (setq projectile-enable-caching t)
 
-
 ;; golden-radio
-(add-hook 'after-init-hook #'golden-ratio-mode )
+(golden-ratio-mode)
 
 ;; line number
 (global-linum-mode 1)
@@ -43,11 +41,8 @@
 ;; magit
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-;; auto-complete
-; (add-hook 'after-init-hook #'ac-config-default )
-
 ;; company-mode
-(add-hook 'after-init-hook 'global-company-mode)
+(global-company-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -64,8 +59,14 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; workaround https://github.com/bbatsov/zenburn-emacs/issues/186
-(add-hook 'after-init-hook (lambda () (load-theme 'zenburn t)))
+(load-theme 'zenburn t)
+
+;; patches
+;; helm auto-resize with golden-ratio http://tuhdo.github.io/helm-intro.html
+(defun pl/helm-alive-p ()
+  (if (boundp 'helm-alive-p)
+      (symbol-value 'helm-alive-p)))
+(add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
 
 ;; local setting file. E.g: add additional exec-path
 (load-file "~/.emacs.d/init-local.el")
