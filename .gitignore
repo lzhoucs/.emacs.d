@@ -27,3 +27,4 @@ init-local.el
 ## others
 *.dat
 *.cache
+.*
