@@ -10,6 +10,7 @@
 (setq auto-save-default nil)
 (setq make-backup-files nil)
 (setq inhibit-startup-screen t)
+(setq initial-scratch-message "")
 (delete-selection-mode t)
 (show-paren-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
