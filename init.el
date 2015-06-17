@@ -23,7 +23,7 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; helm
-(helm-mode)
+(helm-mode -1)
 (helm-autoresize-mode)
 (setq helm-autoresize-max-height 60)
 
@@ -75,3 +75,5 @@
 ;; key binding
 (global-set-key (kbd "C-o") 'er/expand-region)
 (global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
