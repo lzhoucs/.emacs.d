@@ -16,6 +16,7 @@
 			   expand-region golden-ratio
 			   magit markdown-mode
 			   helm-projectile
+			   js2-mode
 			   monokai-theme multiple-cursors
 			   zenburn-theme)
 	)
