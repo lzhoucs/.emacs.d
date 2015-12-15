@@ -5,10 +5,7 @@ url/
 recentf
 
 ## epla
-elpa/gnupg
-elpa/archives
-elpa/**/*.elc
-elpa/*readme.txt
+elpa/
 
 ## magit
 server/

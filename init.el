@@ -6,6 +6,22 @@
 			 ("marmalade" . "https://marmalade-repo.org/packages/")
 			 ))
 
+
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; load packages
+(dolist (p '(ace-jump-mode browse-kill-ring company
+			   expand-region golden-ratio
+			   magit markdown-mode
+			   helm-projectile
+			   monokai-theme multiple-cursors
+			   zenburn-theme)
+	)
+  (unless (package-installed-p p)
+    (package-install p)))
+
 ;; emacs settings
 (setq auto-save-default nil)
 (setq make-backup-files nil)
