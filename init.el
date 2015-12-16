@@ -40,7 +40,7 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; cursor - not working
-(setq cursor-type 'bar)
+(setq-default cursor-type 'bar)
 
 ;; helm
 (helm-mode -1)
@@ -57,7 +57,7 @@
 
 ;; line number
 (global-linum-mode 1)
-(setq linum-format "%d ")
+(setq linum-format "%d")
 
 ;; magit
 (setq magit-last-seen-setup-instructions "1.4.0")
