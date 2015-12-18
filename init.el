@@ -1,5 +1,8 @@
 (package-initialize)
 
+;; csharp-mode workaround. https://github.com/josteink/csharp-mode/pull/50
+;; (require 'cl)
+
 ;; package archive sources
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 			 ("melpa" . "http://melpa.org/packages/")
@@ -33,6 +36,10 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (electric-pair-mode 1)
 (global-auto-revert-mode 1)
+;; whitespace
+(global-whitespace-mode 1)
+;; remove lines from default setting
+(setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark newline-mark))
 
 ;; disable GUI bars
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -52,6 +59,9 @@
 (setq projectile-indexing-method 'alien)  ;; For windows.
 (setq projectile-enable-caching t)
 
+;; helm-projectile
+;; this is how c-c p f is bound to helm-projectile-find-file instead of projectile-find-file
+(helm-projectile-on)
 ;; golden-radio
 (golden-ratio-mode)
 
