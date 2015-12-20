@@ -19,6 +19,9 @@ projectile-bookmarks.eld
 ## ido
 ido.last*
 
+## desktop-save-mode
+.emacs.desktop
+
 ## local customization
 init-local.el
 
@@ -26,4 +29,3 @@ init-local.el
 *.dat
 *.data
 *.cache
-.*

@@ -16,7 +16,7 @@
 
 ;; load packages
 (dolist (p '(ace-jump-mode browse-kill-ring company
-			   expand-region golden-ratio
+			   expand-region golden-ratio editorconfig
 			   magit markdown-mode
 			   helm-projectile
 			   js2-mode
@@ -26,6 +26,8 @@
   (unless (package-installed-p p)
     (package-install p)))
 
+(editorconfig-mode 1)
+
 ;; emacs settings
 (setq auto-save-default nil)
 (setq make-backup-files nil)
@@ -33,13 +35,20 @@
 (setq initial-scratch-message "")
 (delete-selection-mode t)
 (show-paren-mode t)
-(fset 'yes-or-no-p 'y-or-n-p)
 (electric-pair-mode 1)
+(fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode 1)
+;(desktop-save-mode 1)
+
 ;; whitespace
 (global-whitespace-mode 1)
-;; remove lines from default setting
-(setq whitespace-style '(face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark newline-mark))
+(setq whitespace-style '(face tabs spaces tab-mark space-mark))
+
+;; indentation
+(electric-indent-mode t)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq-default tab-always-indent nil)
 
 ;; disable GUI bars
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -50,7 +59,7 @@
 (setq-default cursor-type 'bar)
 
 ;; helm
-(helm-mode -1)
+(helm-mode 1)
 (helm-autoresize-mode)
 (setq helm-autoresize-max-height 60)
 
@@ -94,3 +103,17 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; customize added by the program
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(whitespace-tab ((t (:foreground "#75715E" :weight bold)))))
