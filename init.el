@@ -104,6 +104,9 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; file binding
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
 ;; customize added by the program
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
