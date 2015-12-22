@@ -19,7 +19,7 @@
 			   expand-region golden-ratio editorconfig
 			   magit markdown-mode
 			   helm-projectile
-			   js2-mode
+			   js2-mode csharp-mode
 			   monokai-theme multiple-cursors
 			   zenburn-theme)
 	)
@@ -103,6 +103,10 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; file binding
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
