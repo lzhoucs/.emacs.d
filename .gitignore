@@ -22,6 +22,9 @@ ido.last*
 ## desktop-save-mode
 .emacs.desktop
 
+## multiple-cursors
+.mc-lists.el
+
 ## local customization
 init-local.el
 
