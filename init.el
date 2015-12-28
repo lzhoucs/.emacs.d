@@ -84,6 +84,9 @@
 ;; company-mode
 (global-company-mode)
 
+;; org-mode
+(setq org-log-done t)
+
 ;; theme
 (load-theme 'monokai t)
 
