@@ -19,7 +19,7 @@
 			   expand-region golden-ratio editorconfig
 			   magit markdown-mode
 			   helm-projectile
-			   js2-mode csharp-mode flycheck
+			   js2-mode csharp-mode flycheck web-mode
 			   monokai-theme multiple-cursors
 			   zenburn-theme)
 	)
