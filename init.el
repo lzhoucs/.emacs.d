@@ -71,6 +71,7 @@
 ;; helm-projectile
 ;; this is how c-c p f is bound to helm-projectile-find-file instead of projectile-find-file
 (helm-projectile-on)
+(setq projectile-completion-system 'helm)
 ;; golden-radio
 (golden-ratio-mode)
 
