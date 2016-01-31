@@ -20,7 +20,7 @@
 			   magit markdown-mode
 			   helm-projectile
 			   js2-mode csharp-mode flycheck web-mode
-			   monokai-theme multiple-cursors
+			   monokai-theme multiple-cursors emmet-mode
 			   zenburn-theme)
 	)
   (unless (package-installed-p p)
