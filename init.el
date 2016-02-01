@@ -20,7 +20,7 @@
 			   magit markdown-mode
 			   helm-projectile
 			   js2-mode csharp-mode flycheck web-mode
-			   monokai-theme multiple-cursors emmet-mode
+			   monokai-theme multiple-cursors emmet-mode yasnippet
 			   zenburn-theme)
 	)
   (unless (package-installed-p p)
@@ -87,6 +87,9 @@
 
 ;; org-mode
 (setq org-log-done t)
+
+;; yasnippet
+(yas-global-mode t)
 
 ;; theme
 (load-theme 'monokai t)
