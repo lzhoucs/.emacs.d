@@ -19,21 +19,20 @@
   (package-install 'use-package))
 (require 'use-package)
 
-;; Vim mode
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+
 (use-package evil
-  :ensure t
   :config
   (evil-mode 1))
 
 ;; Theme
 (use-package doom-themes
-  :ensure t
   :config
   (load-theme 'doom-one t))
 
 ;; Helm
 (use-package helm
-  :ensure t
   :init
   (setq helm-mode-fuzzy-match t)
   (setq helm-completion-in-region-fuzzy-match t)
@@ -41,7 +40,6 @@
 
 ;; Which Key
 (use-package which-key
-  :ensure t
   :init
 ;;  (setq which-key-separator " ")
 ;;  (setq which-key-prefix-prefix "+")
@@ -50,7 +48,6 @@
 
 ;; Custom keybinding
 (use-package general
-  :ensure t
   :config (general-define-key
   :states '(normal visual insert emacs)
   :prefix "SPC"
