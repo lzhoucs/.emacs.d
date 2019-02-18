@@ -1,137 +1,81 @@
+;; reference: https://dev.to/huytd/emacs-from-scratch-1cg6 https://gist.github.com/huytd/6b785bdaeb595401d69adc7797e5c22c
+;; Minimal UI
+(scroll-bar-mode -1)
+(tool-bar-mode   -1)
+(tooltip-mode    -1)
+(menu-bar-mode   -1)
+
+;; Package configs
+(require 'package)
+(setq package-enable-at-startup nil)
+(setq package-archives '(("org"   . "http://orgmode.org/elpa/")
+                         ("gnu"   . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
-;; csharp-mode workaround. https://github.com/josteink/csharp-mode/pull/50
-;; (require 'cl)
+;; Bootstrap `use-package`
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
 
-;; package archive sources
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "http://melpa.org/packages/")
-			 ("marmalade" . "https://marmalade-repo.org/packages/")
-			 ))
+;; Vim mode
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1))
 
+;; Theme
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-one t))
 
+;; Helm
+(use-package helm
+  :ensure t
+  :init
+  (setq helm-mode-fuzzy-match t)
+  (setq helm-completion-in-region-fuzzy-match t)
+  (setq helm-candidate-number-list 50))
 
-(unless package-archive-contents
-  (package-refresh-contents))
+;; Which Key
+(use-package which-key
+  :ensure t
+  :init
+;;  (setq which-key-separator " ")
+;;  (setq which-key-prefix-prefix "+")
+  :config
+  (which-key-mode))
 
-;; load packages
-(dolist (p '(ace-jump-mode browse-kill-ring company
-			   expand-region golden-ratio editorconfig
-			   magit markdown-mode
-			   helm-projectile
-			   js2-mode csharp-mode flycheck web-mode
-			   monokai-theme multiple-cursors emmet-mode yasnippet
-			   zenburn-theme)
-	)
-  (unless (package-installed-p p)
-    (package-install p)))
+;; Custom keybinding
+(use-package general
+  :ensure t
+  :config (general-define-key
+  :states '(normal visual insert emacs)
+  :prefix "SPC"
+  :non-normal-prefix "M-SPC"
+  ;; "/"   '(counsel-rg :which-key "ripgrep") ; You'll need counsel package for this
+  "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
+  "SPC" '(helm-M-x :which-key "M-x")
+  "pf"  '(helm-find-file :which-key "find files")
+  ;; Buffers
+  "bb"  '(helm-buffers-list :which-key "buffers list")
+  ;; Window
+  "wl"  '(windmove-right :which-key "move right")
+  "wh"  '(windmove-left :which-key "move left")
+  "wk"  '(windmove-up :which-key "move up")
+  "wj"  '(windmove-down :which-key "move bottom")
+  "w/"  '(split-window-right :which-key "split right")
+  "w-"  '(split-window-below :which-key "split bottom")
+  "wx"  '(delete-window :which-key "delete window")
+  ;; Others
+  "at"  '(ansi-term :which-key "open terminal")
+  )
+)
 
-(editorconfig-mode 1)
-
-;; emacs settings
-(setq auto-save-default nil)
-(setq make-backup-files nil)
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message "")
-(delete-selection-mode t)
-(show-paren-mode t)
-(electric-pair-mode 1)
-(fset 'yes-or-no-p 'y-or-n-p)
-(global-auto-revert-mode 1)
-;(desktop-save-mode 1)
-
-;; whitespace
-(global-whitespace-mode 1)
-(setq whitespace-style '(face tabs spaces tab-mark space-mark))
-
-;; indentation
-(electric-indent-mode t)
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq-default tab-always-indent nil)
-
-;; disable GUI bars
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;; cursor - not working
-(setq-default cursor-type 'bar)
-
-;; helm
-(helm-mode 1)
-(helm-autoresize-mode)
-(setq helm-autoresize-max-height 60)
-
-;; projectile
-(projectile-global-mode)
-(setq projectile-indexing-method 'alien)  ;; For windows.
-(setq projectile-enable-caching t)
-
-;; helm-projectile
-;; this is how c-c p f is bound to helm-projectile-find-file instead of projectile-find-file
-(helm-projectile-on)
-(setq projectile-completion-system 'helm)
-;; golden-radio
-(golden-ratio-mode)
-
-;; line number
-(global-linum-mode 1)
-(setq linum-format "%d")
-
-;; magit
-(setq magit-last-seen-setup-instructions "1.4.0")
-
-;; company-mode
-(global-company-mode)
-
-;; org-mode
-(setq org-log-done t)
-
-;; yasnippet
-(yas-global-mode t)
-
-;; theme
-(load-theme 'monokai t)
-
-;; patches
-;; helm auto-resize with golden-ratio http://tuhdo.github.io/helm-intro.html
-(defun pl/helm-alive-p ()
-  (if (boundp 'helm-alive-p)
-      (symbol-value 'helm-alive-p)))
-(add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
-
-;; local setting file. E.g: add additional exec-path
-(load-file "~/.emacs.d/init-local.el")
-
-;; key binding
-(global-set-key (kbd "C-o") 'er/expand-region)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-?") 'mc/skip-to-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-;; file binding
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-hook 'js2-mode-hook 'flycheck-mode)
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-
-;; customize added by the program
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(magit-log-arguments (quote ("--graph" "--color" "--decorate" "-n256"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(whitespace-tab ((t (:foreground "#75715E" :weight bold)))))
+;; Fancy titlebar for MacOS
+;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
+;; (etq ns-use-proxy-icon  nil)
+;; (setq frame-title-format nil)
