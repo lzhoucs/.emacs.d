@@ -22,9 +22,14 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+;; Evil mode
 (use-package evil
   :config
   (evil-mode 1))
+(use-package evil-escape
+  :config
+  (evil-escape-mode)
+  )
 
 ;; Theme
 (use-package doom-themes
