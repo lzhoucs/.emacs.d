@@ -63,9 +63,14 @@
   ;; "/"   '(counsel-rg :which-key "ripgrep") ; You'll need counsel package for this
   "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
   "SPC" '(helm-M-x :which-key "M-x")
+  "fs"  '(save-buffer :which-key "save buffer")
+  "ff"  '(helm-find-files :which-key)
   "pf"  '(helm-find-file :which-key "find files")
   ;; Buffers
   "bb"  '(helm-buffers-list :which-key "buffers list")
+  "qq"  '(save-buffers-kill-terminal :which-key)
+  ;; magit
+  "g"  '(magit-status :which-key)
   ;; Window
   "wl"  '(windmove-right :which-key "move right")
   "wh"  '(windmove-left :which-key "move left")
@@ -78,7 +83,7 @@
   "at"  '(ansi-term :which-key "open terminal")
   )
 )
-
+ 
 ;; Fancy titlebar for MacOS
 ;; (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 ;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
