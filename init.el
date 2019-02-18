@@ -43,6 +43,9 @@
   (setq helm-completion-in-region-fuzzy-match t)
   (setq helm-candidate-number-list 50))
 
+;; Magit
+(use-package magit)
+
 ;; Which Key
 (use-package which-key
   :init
