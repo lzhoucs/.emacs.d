@@ -3,12 +3,16 @@ auto-save-list/
 ## emacs
 url/
 recentf
+async-bytecomp.log
 
 ## epla
 elpa/
+elpa_26/
+elpa_27/
 
 ## magit
 server/
+transient/
 
 ## tramp
 tramp
