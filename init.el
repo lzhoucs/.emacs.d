@@ -23,6 +23,7 @@
 (setq use-package-always-ensure t)
 
 (require 'subr-x)
+
 ;; Evil mode
 (use-package evil
   :config
@@ -38,11 +39,23 @@
   (load-theme 'doom-one t))
 
 ;; Helm
+(require 'helm-mode)
 (use-package helm
+  :config
+  ;; enables Helm completion globally for any Emacs command. https://github.com/emacs-helm/helm/wiki#helm-mode
+  (helm-mode)
   :init
   (setq helm-mode-fuzzy-match t)
   (setq helm-completion-in-region-fuzzy-match t)
-  (setq helm-candidate-number-list 50))
+  (setq helm-candidate-number-list 50)
+  (setq helm-display-header-line nil)
+  :bind (:map helm-find-files-map
+	      ("C-h"         . helm-find-files-up-one-level)
+	      ("C-j"         . helm-next-line)
+	      ("C-k"         . helm-previous-line)
+	      ("C-l"         . helm-execute-persistent-action)
+	      )
+  )
 
 ;; Magit
 (use-package magit)
