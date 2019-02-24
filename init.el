@@ -22,6 +22,7 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+(require 'subr-x)
 ;; Evil mode
 (use-package evil
   :config
