@@ -49,8 +49,7 @@
 ;; Which Key
 (use-package which-key
   :init
-;;  (setq which-key-separator " ")
-;;  (setq which-key-prefix-prefix "+")
+  (setq which-key-idle-delay .4)
   :config
   (which-key-mode))
 
