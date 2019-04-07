@@ -1,19 +1,10 @@
 ;; reference: https://dev.to/huytd/emacs-from-scratch-1cg6 https://gist.github.com/huytd/6b785bdaeb595401d69adc7797e5c22c
 
+;; ==================== Boostrap =======================
+
 ;; Use emacs version specfic elpa location
 (setq package-user-dir
       (locate-user-emacs-file (concat "elpa-" emacs-version)))
-
-
-;; Minimal UI
-(scroll-bar-mode -1)
-(tool-bar-mode   -1)
-(tooltip-mode    -1)
-(menu-bar-mode   -1)
-
-;; Emacs settings
-(setq auto-save-default nil)
-(setq make-backup-files nil)
 
 ;; Package configs
 (require 'package)
@@ -34,6 +25,25 @@
 
 (require 'subr-x)
 
+;; ==================== Emacs settings =======================
+;; Minimal UI
+(scroll-bar-mode -1)
+(tool-bar-mode   -1)
+(tooltip-mode    -1)
+(menu-bar-mode   -1)
+
+;; Turn off autosave
+(setq auto-save-default nil)
+(setq make-backup-files nil)
+
+;; ==================== Theme =========================
+
+;; Theme
+(use-package doom-themes
+  :config
+  (load-theme 'doom-one t))
+
+;; ==================== Evil ==========================
 ;; Evil mode
 (use-package evil
   :init
@@ -42,8 +52,10 @@
   (evil-mode 1))
 (use-package evil-escape
   :init
-  (setq ;; evil-escape-excluded-states '(normal visual multiedit emacs motion)
-        evil-escape-excluded-major-modes '(magit-status-mode)
+  (setq evil-escape-excluded-states '(visual
+				      ;; normal multiedit emacs motion
+				      )
+	evil-escape-excluded-major-modes '(magit-status-mode)
         evil-escape-key-sequence "jj"
         evil-escape-delay 0.20)
   :config
@@ -57,10 +69,7 @@
 ;   :config
 ;   (evil-collection-init))
 
-;; Theme
-(use-package doom-themes
-  :config
-  (load-theme 'doom-one t))
+;; ====================== Helm Projectile ===========================
 
 ;; Helm
 (use-package helm
@@ -80,9 +89,6 @@
 	      )
   )
 
-;; Magit
-(use-package magit)
-
 ;;============== JavaScript Development ===============
 (use-package vue-mode)
 (use-package emmet-mode)
@@ -91,7 +97,11 @@
   ;; the following approach is recommended when the package name is the same as the mode to be hooked
   ;; :hook (vue-mode vue-mode))
 
+;; ============== Other Packages ==============
+(use-package magit)
 
+
+;; ============= Key Bindings =================
 ;; Which Key
 (use-package which-key
   :init
