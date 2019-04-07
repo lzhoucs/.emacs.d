@@ -6,9 +6,7 @@ recentf
 async-bytecomp.log
 
 ## epla
-elpa/
-elpa_26/
-elpa_27/
+elpa*/
 
 ## magit
 server/
