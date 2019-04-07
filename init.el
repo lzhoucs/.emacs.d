@@ -36,12 +36,26 @@
 
 ;; Evil mode
 (use-package evil
+  :init
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1))
 (use-package evil-escape
+  :init
+  (setq ;; evil-escape-excluded-states '(normal visual multiedit emacs motion)
+        evil-escape-excluded-major-modes '(magit-status-mode)
+        evil-escape-key-sequence "jj"
+        evil-escape-delay 0.20)
   :config
   (evil-escape-mode)
   )
+;; evil-magit
+(use-package evil-magit)
+;; evil-collection
+; (use-package evil-collection
+;   :after evil
+;   :config
+;   (evil-collection-init))
 
 ;; Theme
 (use-package doom-themes
@@ -69,6 +83,15 @@
 ;; Magit
 (use-package magit)
 
+;;============== JavaScript Development ===============
+(use-package vue-mode)
+(use-package emmet-mode)
+(use-package smartparens
+  :hook ((vue-mode vue-mode) . smartparens-mode))
+  ;; the following approach is recommended when the package name is the same as the mode to be hooked
+  ;; :hook (vue-mode vue-mode))
+
+
 ;; Which Key
 (use-package which-key
   :init
@@ -76,6 +99,8 @@
   :config
   (which-key-mode))
 
+;; Other packages
+(use-package vimrc-mode)
 ;; Custom keybinding
 (use-package general
   :config (general-define-key
