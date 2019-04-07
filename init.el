@@ -25,7 +25,7 @@
 
 (require 'subr-x)
 
-
+;; Load external code
 (load-file (locate-user-emacs-file "spacemacs/functions.el"))
 ;; ==================== Emacs settings =======================
 ;; Minimal UI
@@ -37,6 +37,9 @@
 ;; Turn off autosave
 (setq auto-save-default nil)
 (setq make-backup-files nil)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+(toggle-frame-maximized)
 
 ;; ==================== Theme =========================
 
@@ -91,6 +94,20 @@
 	      )
   )
 
+;; Projectile
+(use-package projectile
+  :init
+  (setq projectile-require-project-root nil)
+  :config
+  (projectile-mode 1))
+
+;; Helm Projectile
+(use-package helm-projectile
+  :init
+  (setq helm-projectile-fuzzy-match t)
+  :config
+  (helm-projectile-on))
+
 ;;============== JavaScript Development ===============
 (use-package vue-mode)
 (use-package emmet-mode)
@@ -101,6 +118,7 @@
 
 ;; ============== Other Packages ==============
 (use-package magit)
+(use-package helm-rg)
 
 
 ;; ============= Key Bindings =================
@@ -119,14 +137,16 @@
   :states '(normal visual insert emacs)
   :prefix "SPC"
   :non-normal-prefix "M-SPC"
-  ;; "/"   '(counsel-rg :which-key "ripgrep") ; You'll need counsel package for this
-  "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
-  "SPC" '(helm-M-x :which-key "M-x")
-  "fs"  '(save-buffer :which-key "save buffer")
+  "/"   '(helm-projectile-rg :which-key)
+  "TAB" '(spacemacs/alternate-buffer :which-key)
+  "SPC" '(helm-M-x :which-key)
+  "fs"  '(save-buffer :which-key)
   "ff"  '(helm-find-files :which-key)
-  "pf"  '(helm-find-file :which-key "find files")
+  "pb"  '(helm-projectile-switch-to-buffer :which-key)
+  "pf"  '(helm-projectile-find-file :which-key)
+  "pp"  '(helm-projectile-switch-project :which-key)
   ;; Buffers
-  "bb"  '(helm-buffers-list :which-key "buffers list")
+  "bb"  '(helm-buffers-list :which-key)
   "qq"  '(save-buffers-kill-terminal :which-key)
   ;; magit
   "g"  '(magit-status :which-key)
