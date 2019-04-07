@@ -1,9 +1,19 @@
 ;; reference: https://dev.to/huytd/emacs-from-scratch-1cg6 https://gist.github.com/huytd/6b785bdaeb595401d69adc7797e5c22c
+
+;; Use emacs version specfic elpa location
+(setq package-user-dir
+      (locate-user-emacs-file (concat "elpa-" emacs-version)))
+
+
 ;; Minimal UI
 (scroll-bar-mode -1)
 (tool-bar-mode   -1)
 (tooltip-mode    -1)
 (menu-bar-mode   -1)
+
+;; Emacs settings
+(setq auto-save-default nil)
+(setq make-backup-files nil)
 
 ;; Package configs
 (require 'package)
