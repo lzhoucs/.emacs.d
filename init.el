@@ -25,6 +25,8 @@
 
 (require 'subr-x)
 
+
+(load-file (locate-user-emacs-file "spacemacs/functions.el"))
 ;; ==================== Emacs settings =======================
 ;; Minimal UI
 (scroll-bar-mode -1)
