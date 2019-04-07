@@ -39,7 +39,6 @@
   (load-theme 'doom-one t))
 
 ;; Helm
-(require 'helm-mode)
 (use-package helm
   :config
   ;; enables Helm completion globally for any Emacs command. https://github.com/emacs-helm/helm/wiki#helm-mode
