@@ -110,11 +110,12 @@
 
 ;;============== JavaScript Development ===============
 (use-package vue-mode)
-(use-package emmet-mode)
+
+(use-package emmet-mode
+  :hook (vue-mode vue-mode))
+
 (use-package smartparens
   :hook ((vue-mode vue-mode) . smartparens-mode))
-  ;; the following approach is recommended when the package name is the same as the mode to be hooked
-  ;; :hook (vue-mode vue-mode))
 
 ;; ============== Other Packages ==============
 (use-package magit)
