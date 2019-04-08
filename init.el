@@ -137,6 +137,11 @@
   :hook ((flycheck-mode) . my/use-eslint-from-node-modules)
   )
 
+(use-package yasnippet-snippets)
+(use-package yasnippet
+  :config (yas-global-mode 1)
+  )
+
 (use-package vue-mode)
 
 (use-package emmet-mode
