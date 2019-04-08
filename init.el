@@ -141,6 +141,7 @@
   "/"   '(helm-projectile-rg :which-key)
   "TAB" '(spacemacs/alternate-buffer :which-key)
   "SPC" '(helm-M-x :which-key)
+  "cl"  '(comment-line :which-key)
   "fs"  '(save-buffer :which-key)
   "ff"  '(helm-find-files :which-key)
   "pb"  '(helm-projectile-switch-to-buffer :which-key)
