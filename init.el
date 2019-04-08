@@ -174,6 +174,7 @@
   "pp"  '(helm-projectile-switch-project :which-key)
   ;; Buffers
   "bb"  '(helm-buffers-list :which-key)
+  "bd"  '(kill-this-buffer :which-key)
   "qq"  '(save-buffers-kill-terminal :which-key)
   ;; magit
   "g"  '(magit-status :which-key)
