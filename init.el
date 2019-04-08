@@ -81,10 +81,10 @@
   :config
   ;; enables Helm completion globally for any Emacs command. https://github.com/emacs-helm/helm/wiki#helm-mode
   (helm-mode)
+  (helm-autoresize-mode 1)
   :init
   (setq helm-mode-fuzzy-match t)
   (setq helm-completion-in-region-fuzzy-match t)
-  (setq helm-candidate-number-list 50)
   (setq helm-display-header-line nil)
   :bind (:map helm-find-files-map
 	      ("C-h"         . helm-find-files-up-one-level)
