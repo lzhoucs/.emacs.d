@@ -109,13 +109,28 @@
   (helm-projectile-on))
 
 ;;============== JavaScript Development ===============
+(use-package highlight-parentheses
+  :config
+  :hook ((prog-mode vue-mode) . highlight-parentheses-mode))
+
+(use-package smartparens
+  :hook ((prog-mode vue-mode) . smartparens-mode))
+
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1)
+  (add-to-list 'editorconfig-indentation-alist
+            '(vue-mode css-indent-offset
+  		       js-indent-level
+  		       sgml-basic-offset
+  		       ssass-tab-width)
+  	    )
+  )
+
 (use-package vue-mode)
 
 (use-package emmet-mode
   :hook (vue-mode vue-mode))
-
-(use-package smartparens
-  :hook ((vue-mode vue-mode) . smartparens-mode))
 
 ;; ============== Other Packages ==============
 (use-package magit)
