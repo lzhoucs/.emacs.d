@@ -27,6 +27,7 @@
 
 ;; Load external code
 (load-file (locate-user-emacs-file "spacemacs/functions.el"))
+(load-file (locate-user-emacs-file "functions/javascript.el"))
 ;; ==================== Emacs settings =======================
 ;; Minimal UI
 (scroll-bar-mode -1)
@@ -125,6 +126,15 @@
   		       sgml-basic-offset
   		       ssass-tab-width)
   	    )
+  )
+
+(use-package flycheck
+  :init
+  (setq flycheck-check-syntax-automatically '(mode-enabled save))
+  ;; Note: this is part of :init, not :config
+  (global-flycheck-mode)
+  ;; not regular usage of :hook, I know
+  :hook ((flycheck-mode) . my/use-eslint-from-node-modules)
   )
 
 (use-package vue-mode)
