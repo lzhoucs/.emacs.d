@@ -41,6 +41,7 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (toggle-frame-maximized)
+(global-display-line-numbers-mode)
 
 ;; ==================== Theme =========================
 
