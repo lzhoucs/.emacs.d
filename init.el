@@ -18,8 +18,8 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-(require 'use-package)
 
+(require 'use-package)
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
@@ -40,6 +40,7 @@
 (setq make-backup-files nil)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+(setq initial-scratch-message "")
 (toggle-frame-maximized)
 (global-display-line-numbers-mode)
 
@@ -62,7 +63,7 @@
   (setq evil-escape-excluded-states '(visual
 				      ;; normal multiedit emacs motion
 				      )
-	evil-escape-excluded-major-modes '(magit-status-mode)
+	evil-escape-excluded-major-modes '(magit-status-mode magit-revision-mode)
         evil-escape-key-sequence "jj"
         evil-escape-delay 0.20)
   :config
@@ -152,6 +153,9 @@
 (use-package emmet-mode
   :hook (vue-mode vue-mode))
 
+(use-package js2-mode
+  :init (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  )
 ;; ============== Other Packages ==============
 (use-package magit)
 (use-package helm-rg)
