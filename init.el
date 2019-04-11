@@ -154,7 +154,8 @@
   :hook (vue-mode vue-mode))
 
 (use-package js2-mode
-  :init (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  ;; https://github.com/jwiegley/use-package#modes-and-interpreters
+  :mode "\\.js\\'"
   )
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
