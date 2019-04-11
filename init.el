@@ -6,6 +6,11 @@
 (setq package-user-dir
       (locate-user-emacs-file (concat "elpa-" emacs-version)))
 
+;; Customize custom file
+(setq custom-file
+      (locate-user-emacs-file "custom.el"))
+(load custom-file 'noerror)
+
 ;; Package configs
 (require 'package)
 (setq package-enable-at-startup nil)
