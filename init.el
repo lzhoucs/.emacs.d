@@ -122,7 +122,17 @@
 
 ;;============== JavaScript Development ===============
 (use-package highlight-parentheses
-  :config
+  :init
+  (setq
+   ;; hl-paren-colors '("zenburn-fg" "zenburn-red" "zenburn-yellow" "zenburn-green")
+   hl-paren-highlight-adjacent t
+   ;; hl-paren-highlight-adjacent
+   )
+  :bind (:map company-active-map
+	      ("C-j"         . company-select-next)
+	      ("C-k"         . company-select-previous)
+	      )
+
   :hook ((prog-mode vue-mode) . highlight-parentheses-mode))
 
 (use-package smartparens
