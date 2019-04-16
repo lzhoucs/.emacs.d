@@ -128,10 +128,6 @@
    hl-paren-highlight-adjacent t
    ;; hl-paren-highlight-adjacent
    )
-  :bind (:map company-active-map
-	      ("C-j"         . company-select-next)
-	      ("C-k"         . company-select-previous)
-	      )
 
   :hook ((prog-mode vue-mode) . highlight-parentheses-mode))
 
@@ -176,7 +172,12 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 (use-package company
-  :config (global-company-mode 1)
+  :demand t
+  :bind (:map company-active-map
+  	      ("C-j"         . company-select-next)
+  	      ("C-k"         . company-select-previous)
+  	      )
+  :config (global-company-mode)
   )
 ;; ============== Other Packages ==============
 (use-package magit)
