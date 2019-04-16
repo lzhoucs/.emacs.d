@@ -174,6 +174,10 @@
   )
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
+
+(use-package company
+  :config (global-company-mode 1)
+  )
 ;; ============== Other Packages ==============
 (use-package magit)
 (use-package helm-rg)
