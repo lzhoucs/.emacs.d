@@ -52,9 +52,9 @@
 ;; ==================== Theme =========================
 
 ;; Theme
-(use-package doom-themes
+(use-package zenburn-theme
   :config
-  (load-theme 'doom-one t))
+  (load-theme 'zenburn t))
 
 ;; ==================== Evil ==========================
 ;; Evil mode
