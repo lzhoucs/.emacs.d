@@ -225,6 +225,8 @@
   "bb"  '(helm-buffers-list :which-key)
   "bd"  '(kill-this-buffer :which-key)
   "qq"  '(save-buffers-kill-terminal :which-key)
+  ;; Flycheck
+  "el"  '(flycheck-list-errors :which-key)
   ;; magit
   "g"  '(magit-status :which-key)
   ;; Window
@@ -235,6 +237,7 @@
   "w/"  '(split-window-right :which-key "split right")
   "w-"  '(split-window-below :which-key "split bottom")
   "wx"  '(delete-window :which-key "delete window")
+  "wo"  '(delete-other-windows :which-key)
   ;; Others
   "at"  '(ansi-term :which-key "open terminal")
   )
