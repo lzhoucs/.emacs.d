@@ -147,7 +147,10 @@
 
 (use-package flycheck
   :init
-  (setq flycheck-check-syntax-automatically '(mode-enabled save))
+  (setq
+   flycheck-check-syntax-automatically '(mode-enabled save)
+   company-tooltip-align-annotations t
+   )
   ;; Note: this is part of :init, not :config
   (global-flycheck-mode)
   ;; not regular usage of :hook, I know
@@ -179,6 +182,15 @@
   	      )
   :config (global-company-mode)
   )
+
+;; LSP
+(use-package lsp-mode
+  :hook ((prog-mode) . lsp))
+(use-package lsp-ui
+  :hook ((lsp-mode) . lsp-ui-mode))
+
+(use-package company-lsp)
+
 ;; ============== Other Packages ==============
 (use-package magit)
 (use-package helm-rg)
