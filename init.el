@@ -187,19 +187,20 @@
 (use-package lsp-mode
   :init
   (setq lsp-auto-guess-root t)
-  :hook ((
-	  prog-mode
-	  ;; I got this error when trying to launch vue file without installing vls(because I was trying to get the script portion to work as normal js which does work with lsp already): No LSP server for vue-mode when not installing vls
-	  ;; vue-mode   
-	  ) . lsp))
+  :hook ((prog-mode) . lsp))
 (use-package lsp-ui
   :hook ((lsp-mode) . lsp-ui-mode))
 
 (use-package company-lsp)
 
-(use-package lsp-vue
-  ;; I got this error after installing vls: File mode specification error: (void-function lsp-make-traverser)
-  :hook ((vue-mode) . lsp-vue-mmm-enable))
+(defun vuejs-custom ()
+  (lsp)
+  (lsp-ui-mode)
+  (push 'company-lsp company-backends)
+  (flycheck-mode t)
+  (company-mode))
+
+(add-hook 'vue-mode-hook 'vuejs-custom)
 
 ;; ============== Other Packages ==============
 (use-package magit)
