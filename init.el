@@ -185,6 +185,8 @@
 
 ;; LSP
 (use-package lsp-mode
+  :init
+  (setq lsp-auto-guess-root t)
   :hook ((prog-mode) . lsp))
 (use-package lsp-ui
   :hook ((lsp-mode) . lsp-ui-mode))
