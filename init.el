@@ -68,7 +68,7 @@
   (setq evil-escape-excluded-states '(visual
 				      ;; normal multiedit emacs motion
 				      )
-	evil-escape-excluded-major-modes '(magit-status-mode magit-log-mode)
+	evil-escape-excluded-major-modes '(magit-status-mode magit-log-mode magit-revision-mode)
         evil-escape-key-sequence "jj"
         evil-escape-delay 0.20)
   :config
