@@ -196,6 +196,7 @@
 ;; ============== Other Packages ==============
 (use-package magit)
 (use-package helm-rg)
+(use-package sws-mode)
 
 
 ;; ============= Key Bindings =================
