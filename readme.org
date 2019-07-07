@@ -1,0 +1,12 @@
+* My emacs journey
+
+To install, run the following and restart your Emacs
+
+#+BEGIN_SRC 
+git clone git@github.com:lzhoucs/.emacs.d.git ~/.emacs.d
+#+END_SRC
+
+* TODO List
+** TODO Auto delete packages defined by ~use-package~
+** TODO stylus file indentation and syntax highlight
+** TODO TypeScript syntax highlight
