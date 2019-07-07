@@ -175,6 +175,8 @@
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 (use-package company
+  :init
+  (setq company-idle-delay 0.2)
   :demand t
   :bind (:map company-active-map
   	      ("C-j"         . company-select-next)
@@ -220,6 +222,7 @@
   "cl"  '(comment-line :which-key)
   "fs"  '(save-buffer :which-key)
   "ff"  '(helm-find-files :which-key)
+  "fl"  '(find-file-literally :which-key)
   "pb"  '(helm-projectile-switch-to-buffer :which-key)
   "pf"  '(helm-projectile-find-file :which-key)
   "pp"  '(helm-projectile-switch-project :which-key)
