@@ -177,6 +177,8 @@
 (use-package company
   :init
   (setq company-idle-delay 0.2)
+  ;; TODO pending try
+  ;; (setq company-dabbrev-downcase 0)
   :demand t
   :bind (:map company-active-map
   	      ("C-j"         . company-select-next)
