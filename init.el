@@ -8,7 +8,7 @@
 
 ;; Customize custom file
 (setq custom-file
-      (locate-user-emacs-file "custom.el"))
+      (locate-user-emacs-file "local-custom.el"))
 (load custom-file 'noerror)
 
 ;; Package configs

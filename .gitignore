@@ -28,7 +28,7 @@ ido.last*
 .mc-lists.el
 
 ## local customization
-init-local.el
+local-custom.el
 
 ## others
 *.dat
