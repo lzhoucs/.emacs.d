@@ -2,7 +2,7 @@
 (setq user-emacs-directory (concat "~/.emacs.d/"
                                ;; (getenv "MY_EMACS_CONFIG")
                                ;; "doomemacs"
-                               ; "spacemacs"
+                               ;; "spacemacs"
                                "emacs"
                                "/"
                                )
