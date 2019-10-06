@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: test before each
+# key: tbe
+# group: mine
+# --
+beforeEach(() => {
+  $0
+})

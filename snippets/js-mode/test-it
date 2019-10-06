@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: test it
+# key: tt
+# group: mine
+# --
+it("should ${1:todo}", () => {
+  $0
+})
