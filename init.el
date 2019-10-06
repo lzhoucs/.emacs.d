@@ -33,6 +33,8 @@
 ;; Load external code
 (load-file (locate-user-emacs-file "spacemacs/functions.el"))
 (load-file (locate-user-emacs-file "functions/javascript.el"))
+;; needed only for emacs-mac: https://github.com/railwaycat/homebrew-emacsmacport
+(load-file (locate-user-emacs-file "mac-switch-meta.el"))
 ;; ==================== Emacs settings =======================
 ;; Minimal UI
 (scroll-bar-mode -1)
