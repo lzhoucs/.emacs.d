@@ -15,17 +15,17 @@ This repo also contains an entry file init.el which serves as a loader to one of
 
 * doomemacs instructions
 ** doomemacs fresh install
-  - clone repo into <current-dir>/doomemacs
-  - make sure ~doomemacs/bin~ is in the path: ~export PATH="$PATH:$HOME/.emacs.d/doomemacs/bin"~
-  - make sure ~DOOMDIR~ is set: ~export DOOMDIR=$MY_DOT_FILES/doomconfig~ 
+  - clone repo into <current-dir>/distributions/doomemacs
+  - make sure ~doomemacs/bin~ is in the path: ~export PATH="$PATH:$HOME/.emacs.d/distributions/doomemacs/bin"~
+  - make sure ~DOOMDIR~ is set: ~export ~/.emacs.d/distribution-configs/DOOMDIR~ 
   - switch to doomemacs in the loader
   - turnoff emacs
   - run ~doom install~ in the command line
   - start emacs
 ** doomemacs update
-  - pull latest from repo <current-dir>/doomemacs
-  - make sure ~doomemacs/bin~ is in the path: ~export PATH="$PATH:$HOME/.emacs.d/doomemacs/bin"~
-  - make sure ~DOOMDIR~ is set: ~export DOOMDIR=$MY_DOT_FILES/doomconfig~ 
+  - pull latest from repo <current-dir>/distributions/doomemacs
+  - make sure ~doomemacs/bin~ is in the path: ~export PATH="$PATH:$HOME/.emacs.d/distributions/doomemacs/bin"~
+  - make sure ~DOOMDIR~ is set: ~export ~/.emacs.d/distribution-configs/DOOMDIR~ 
   - switch to doomemacs in the loader
   - turnoff emacs
   - run ~doom refresh~ in the command line
