@@ -175,6 +175,9 @@
   )
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
+;; 26.3 only issue, see: https://github.com/AdamNiederer/vue-mode/issues/74#issuecomment-528255716
+(setq mmm-js-mode-enter-hook (lambda () (setq syntax-ppss-table nil)))
+(setq mmm-typescript-mode-enter-hook (lambda () (setq syntax-ppss-table nil)))
 
 (use-package company
   :init
