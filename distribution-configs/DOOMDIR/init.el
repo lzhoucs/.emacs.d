@@ -186,7 +186,8 @@
   (setq evil-escape-key-sequence "jj")
 )
 
-(after! editor-config
+(after! editorconfig
+    (editorconfig-mode 1)
     (add-to-list 'editorconfig-indentation-alist
             '(vue-mode css-indent-offset
   		       js-indent-level
@@ -194,3 +195,7 @@
   		       ssass-tab-width)
   	    )
 )
+
+;; 26.3 only issue, see: https://github.com/AdamNiederer/vue-mode/issues/74#issuecomment-528255716
+(setq mmm-js-mode-enter-hook (lambda () (setq syntax-ppss-table nil)))
+(setq mmm-typescript-mode-enter-hook (lambda () (setq syntax-ppss-table nil)))
