@@ -30,7 +30,12 @@ This repo also contains an entry file ~init.el~ which serves as a loader to one 
   - turnoff emacs
   - run ~doom refresh~ in the command line
   - start emacs
-
+** other notes
+doomemacs rely on external ~emacs~ command to be available in ~PATH~ before
+install/refresh can work properly. This makes it tricky to switch emacs
+versions or simply use macOS native Emacs.app where a ~emacs~ command is simply not in
+the ~PATH~. With all other emacs distributions such as spacemacs, such a problem
+doesn't exist since what we use is what it use. See https://github.com/hlissner/doom-emacs/issues/71 on how to change emacs command.
 * spacemacs instructions
 ** spacemacs fresh install
   - clone repo into <current-dir>/distributions/spacemacs
