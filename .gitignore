@@ -3,6 +3,9 @@ auto-save-list/
 ## distributions
 /distributions
 
+## .env file
+*.env
+
 ## emacs
 url/
 recentf

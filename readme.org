@@ -33,13 +33,19 @@ This repo also contains an entry file init.el which serves as a loader to one of
 
 * spacemacs instructions
 ** spacemacs fresh install
-  - clone repo into <current-dir>/spacemacs
-  - make sure ~SPACEMACSDIR~ is set: ~export SPACEMACSDIR=$MY_DOT_FILES/spacemacs-config~
+  - clone repo into <current-dir>/distributions/spacemacs
+  - make sure ~SPACEMACSDIR~ is set: ~export SPACEMACSDIR=~/.emacs.d/distribution-configs/SPACEMACSDIR~
+    See: https://github.com/syl20bnr/spacemacs/blob/develop/doc/DOCUMENTATION.org#alternative-dotdirectory
   - switch to spacemacs in the loader
   - turnoff emacs
   - start emacs
 ** spacemacs update
-   TODO
+  - pull latest from repo <current-dir>/distributions/spacemacs
+  - make sure ~SPACEMACSDIR~ is set: ~export SPACEMACSDIR=~/.emacs.d/distribution-configs/SPACEMACSDIR~
+  - switch to spacemacs in the loader
+  - turnoff emacs
+  - start emacs
+  - run ~SPC f e D~ to compare with latest template config and manually merge
 
 * TODO List
 ** TODO Auto delete packages defined by ~use-package~
