@@ -6,6 +6,41 @@ To install, run the following and restart your Emacs
 git clone git@github.com:lzhoucs/.emacs.d.git ~/.emacs.d
 #+END_SRC
 
+This mono-repo contains the following emacs distributions
+  - spacemacs - spacemacs repo
+  - doomemacs - doomemacs repo
+  - emacs - my emacs repo
+
+This repo also contains an entry file init.el which serves as a loader to one of the emacs distributions above
+
+* doomemacs instructions
+** doomemacs fresh install
+  - clone repo into <current-dir>/doomemacs
+  - make sure ~doomemacs/bin~ is in the path: ~export PATH="$PATH:$HOME/.emacs.d/doomemacs/bin"~
+  - make sure ~DOOMDIR~ is set: ~export DOOMDIR=$MY_DOT_FILES/doomconfig~ 
+  - switch to doomemacs in the loader
+  - turnoff emacs
+  - run ~doom install~ in the command line
+  - start emacs
+** doomemacs update
+  - pull latest from repo <current-dir>/doomemacs
+  - make sure ~doomemacs/bin~ is in the path: ~export PATH="$PATH:$HOME/.emacs.d/doomemacs/bin"~
+  - make sure ~DOOMDIR~ is set: ~export DOOMDIR=$MY_DOT_FILES/doomconfig~ 
+  - switch to doomemacs in the loader
+  - turnoff emacs
+  - run ~doom refresh~ in the command line
+  - start emacs
+
+* spacemacs instructions
+** spacemacs fresh install
+  - clone repo into <current-dir>/spacemacs
+  - make sure ~SPACEMACSDIR~ is set: ~export SPACEMACSDIR=$MY_DOT_FILES/spacemacs-config~
+  - switch to spacemacs in the loader
+  - turnoff emacs
+  - start emacs
+** spacemacs update
+   TODO
+
 * TODO List
 ** TODO Auto delete packages defined by ~use-package~
 ** TODO stylus file indentation and syntax highlight
