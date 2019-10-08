@@ -1,7 +1,8 @@
 auto-save-list/
 
 ## distributions
-/distributions
+/distributions/*
+!/distributions/.gitkeep
 
 ## .env file
 *.env

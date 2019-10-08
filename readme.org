@@ -11,7 +11,7 @@ This mono-repo contains the following emacs distributions
   - doomemacs - doomemacs repo
   - emacs - my emacs repo
 
-This repo also contains an entry file init.el which serves as a loader to one of the emacs distributions above
+This repo also contains an entry file ~init.el~ which serves as a loader to one of the emacs distributions above
 
 * doomemacs instructions
 ** doomemacs fresh install
