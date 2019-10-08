@@ -6,6 +6,47 @@ To install, run the following and restart your Emacs
 git clone git@github.com:lzhoucs/.emacs.d.git ~/.emacs.d
 #+END_SRC
 
+This mono-repo contains the following emacs distributions
+  - spacemacs - spacemacs repo
+  - doomemacs - doomemacs repo
+  - emacs - my emacs repo
+
+This repo also contains an entry file init.el which serves as a loader to one of the emacs distributions above
+
+* doomemacs instructions
+** doomemacs fresh install
+  - clone repo into <current-dir>/distributions/doomemacs
+  - make sure ~doomemacs/bin~ is in the path: ~export PATH="$PATH:$HOME/.emacs.d/distributions/doomemacs/bin"~
+  - make sure ~DOOMDIR~ is set: ~export ~/.emacs.d/distribution-configs/DOOMDIR~ 
+  - switch to doomemacs in the loader
+  - turnoff emacs
+  - run ~doom install~ in the command line
+  - start emacs
+** doomemacs update
+  - pull latest from repo <current-dir>/distributions/doomemacs
+  - make sure ~doomemacs/bin~ is in the path: ~export PATH="$PATH:$HOME/.emacs.d/distributions/doomemacs/bin"~
+  - make sure ~DOOMDIR~ is set: ~export ~/.emacs.d/distribution-configs/DOOMDIR~ 
+  - switch to doomemacs in the loader
+  - turnoff emacs
+  - run ~doom refresh~ in the command line
+  - start emacs
+
+* spacemacs instructions
+** spacemacs fresh install
+  - clone repo into <current-dir>/distributions/spacemacs
+  - make sure ~SPACEMACSDIR~ is set: ~export SPACEMACSDIR=~/.emacs.d/distribution-configs/SPACEMACSDIR~
+    See: https://github.com/syl20bnr/spacemacs/blob/develop/doc/DOCUMENTATION.org#alternative-dotdirectory
+  - switch to spacemacs in the loader
+  - turnoff emacs
+  - start emacs
+** spacemacs update
+  - pull latest from repo <current-dir>/distributions/spacemacs
+  - make sure ~SPACEMACSDIR~ is set: ~export SPACEMACSDIR=~/.emacs.d/distribution-configs/SPACEMACSDIR~
+  - switch to spacemacs in the loader
+  - turnoff emacs
+  - start emacs
+  - run ~SPC f e D~ to compare with latest template config and manually merge
+
 * TODO List
 ** TODO Auto delete packages defined by ~use-package~
 ** TODO stylus file indentation and syntax highlight
