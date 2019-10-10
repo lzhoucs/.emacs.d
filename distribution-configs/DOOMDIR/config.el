@@ -6,5 +6,7 @@
 (map! :leader
       :desc "Frame maximized" "tM" #'toggle-frame-maximized
       :desc "Commment line" "cl" #'comment-line
-      "w/" #'split-window-right
+
+      ;; use 'eval-window-vsplit (SPC-w-v)
+      ;; "w/" #'split-window-right
       )
