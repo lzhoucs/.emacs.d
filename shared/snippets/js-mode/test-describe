@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: test describe
+# key: td
+# group: mine
+# --
+describe("${1:todo} unit tests", () => {
+  $0
+})
