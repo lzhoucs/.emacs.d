@@ -12,4 +12,7 @@
                                )
     )
 
+(setq my-shared-dir "~/.emacs.d/shared/")
+
 (load-file (concat user-emacs-directory "init.el"))
+(load-file (concat my-shared-dir "init.el"))
