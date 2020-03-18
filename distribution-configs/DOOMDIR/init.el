@@ -150,7 +150,8 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       ;;web               ; the tubes
+       (web
+        +lsp)               ; the tubes
        ;;vala              ; GObjective-C
 
        :email
@@ -189,20 +190,15 @@
    evil-escape-key-sequence "jj"
    evil-escape-delay 0.25
    )
-)
+  )
 
-(after! editorconfig
-    (editorconfig-mode 1)
-    (add-to-list 'editorconfig-indentation-alist
-            '(vue-mode css-indent-offset
-  		       js-indent-level
-  		       sgml-basic-offset
-  		       ssass-tab-width)
-  	    )
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  ;; this is compatible with vue cli prettier config
+  (setq web-mode-script-padding 0)
+  (message "indentation updated!")
 )
+(add-hook 'web-mode-hook 'my-web-mode-hook)
 
-;; 26.3 only issue, see: https://github.com/AdamNiederer/vue-mode/issues/74#issuecomment-528255716
-(setq mmm-js-mode-enter-hook (lambda () (setq syntax-ppss-table nil)))
-(setq mmm-typescript-mode-enter-hook (lambda () (setq syntax-ppss-table nil)))
 
 (setq dired-dwim-target t)
