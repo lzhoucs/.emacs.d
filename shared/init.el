@@ -1,4 +1,5 @@
 (after! yasnippet
   ;; add ./snippets dir to yasnippet
-  (add-to-list 'yas-snippet-dirs (expand-file-name "snippets"))
+  (message "loading mine snippets")
+  (add-to-list 'yas-snippet-dirs (concat my-shared-dir "snippets"))
   )
