@@ -32,7 +32,8 @@ This repo also contains an entry file ~init.el~ which serves as a loader to one 
     #+BEGIN_SRC sh
 doom clean      # Ensure your config isn't byte-compiled
 doom sync       # synchronizes your config with Doom Emacs. This includes add new packages, remove unused packages, but not include updating existing packages
-doom update     # updates installed packages
+# no longer available
+# doom update     # updates installed packages
     #+END_SRC
   - start emacs
 ** other notes
