@@ -10,3 +10,25 @@
       ;; use 'eval-window-vsplit (SPC-w-v)
       ;; "w/" #'split-window-right
       )
+
+;; My Customizations
+(toggle-frame-maximized)
+
+(setq which-key-idle-delay .4)
+
+(setq dired-dwim-target t)
+
+(after! evil-escape
+  (setq
+   evil-escape-key-sequence "jj"
+   evil-escape-delay 0.25
+   )
+  )
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  ;; this is compatible with vue cli prettier config
+  (setq web-mode-script-padding 0)
+  (message "indentation updated!")
+)
+(add-hook 'web-mode-hook 'my-web-mode-hook)

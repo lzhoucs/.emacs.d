@@ -180,25 +180,3 @@
        ;; provides a Spacemacs-inspired keybinding scheme and a smartparens
        ;; config. Use it as a reference for your own modules.
        (default +bindings +smartparens))
-
-;; my customization
-(toggle-frame-maximized)
-(setq which-key-idle-delay .4)
-
-(after! evil-escape
-  (setq
-   evil-escape-key-sequence "jj"
-   evil-escape-delay 0.25
-   )
-  )
-
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-  ;; this is compatible with vue cli prettier config
-  (setq web-mode-script-padding 0)
-  (message "indentation updated!")
-)
-(add-hook 'web-mode-hook 'my-web-mode-hook)
-
-
-(setq dired-dwim-target t)
