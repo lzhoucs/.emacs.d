@@ -3,11 +3,13 @@
                                ;; (getenv "MY_EMACS_CONFIG")
 
 				   ;; make sure DOOMDIR is set
-				   ;; "distributions/doomemacs"
+				   "distributions/doomemacs"
 
 				   ;; make sure SPACEMACSDIR is set
 			       ;; "distributions/spacemacs"
-                               "emacs"
+
+                               ;; "emacs"
+
                                "/"
                                )
     )

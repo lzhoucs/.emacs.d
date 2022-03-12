@@ -58,6 +58,9 @@ doesn't exist since what we use is what it use. See https://github.com/hlissner/
   - start emacs
   - run ~SPC f e D~ to compare with latest template config and manually merge
 
+* doomemacs TODO List
+** org-super-agenda
+https://www.youtube.com/watch?v=hZpDdbflt8c
 * TODO List
 ** TODO Auto delete packages defined by ~use-package~
 ** TODO stylus file indentation and syntax highlight
