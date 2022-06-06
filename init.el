@@ -6,10 +6,10 @@
 				   "distributions/doomemacs"
 
 				   ;; make sure SPACEMACSDIR is set
-			       ;; "distributions/spacemacs"
+			           ;; "distributions/spacemacs"
 
-                               ;; "emacs"
-
+                                   ;; my config - wip
+                                   ;; "emacs"
                                "/"
                                )
     )
